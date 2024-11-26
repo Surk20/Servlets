@@ -1,0 +1,41 @@
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class InterfaceSessionServlet implements Servlet {
+    private transient ServletConfig config;
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        this.config = config;
+    }
+
+    @Override
+    public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+
+        HttpSession session = httpRequest.getSession();
+        session.setAttribute("username", "ServletInterfaceUser");
+
+        PrintWriter out = httpResponse.getWriter();
+        httpResponse.setContentType("text/html");
+        out.println("<h1>Servlet Interface Session Example</h1>");
+        out.println("<p>Session ID: " + session.getId() + "</p>");
+        out.println("<p>Username: " + session.getAttribute("username") + "</p>");
+    }
+
+    @Override
+    public void destroy() {
+    }
+
+    @Override
+    public ServletConfig getServletConfig() {
+        return config;
+    }
+
+    @Override
+    public String getServletInfo() {
+        return "InterfaceSessionServlet";
+    }
+}
