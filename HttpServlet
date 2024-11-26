@@ -1,0 +1,17 @@
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class HttpSessionServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.setAttribute("username", "HttpServletUser");
+
+        PrintWriter out = response.getWriter();
+        response.setContentType("text/html");
+        out.println("<h1>HttpServlet Session Example</h1>");
+        out.println("<p>Session ID: " + session.getId() + "</p>");
+        out.println("<p>Username: " + session.getAttribute("username") + "</p>");
+    }
+}
