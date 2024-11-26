@@ -1,0 +1,28 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="3.1">
+    <servlet>
+        <servlet-name>GenericSessionServlet</servlet-name>
+        <servlet-class>GenericSessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GenericSessionServlet</servlet-name>
+        <url-pattern>/genericSession</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HttpSessionServlet</servlet-name>
+        <servlet-class>HttpSessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpSessionServlet</servlet-name>
+        <url-pattern>/httpSession</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>InterfaceSessionServlet</servlet-name>
+        <servlet-class>InterfaceSessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InterfaceSessionServlet</servlet-name>
+        <url-pattern>/interfaceSession</url-pattern>
+    </servlet-mapping>
+</web-app>
